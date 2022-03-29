@@ -10,3 +10,6 @@ while True:
     # p = [name, price] 將上述三行濃縮成一行，或是直接放在p裡面
     products.append([name, price])
 print(products)
+
+for p in products:
+    print(p[0], '的價格是', p[1])
