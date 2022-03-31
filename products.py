@@ -1,14 +1,19 @@
-# 讀取檔案,用splict切割檔案(結果為清單),strip拿掉換行符號
-products = []
-with open('products.csv', 'r') as f:
-    for line in f:
-        if '商品,價格' in line:
-            # continue和break只能寫在迴圈，continue是跳到下一迴的意思
-            continue  # 繼續
-        name, price = line.strip().split(',')
-        products.append([name, price])
+import os  # operating system
 
-print(products)
+products = []
+if os.path.isfile('products.csv'):  # 檢查檔案是否存在
+    print('Yes')
+    # 讀取檔案,用splict切割檔案(結果為清單),strip拿掉換行符號
+    with open('products.csv', 'r') as f:
+        for line in f:
+            if '商品,價格' in line:
+                # continue和break只能寫在迴圈，continue是跳到下一迴的意思
+                continue  # 繼續
+            name, price = line.strip().split(',')
+            products.append([name, price])
+    print(products)
+else:
+    print('No file')
 
 # 讓使用者輸入
 while True:
